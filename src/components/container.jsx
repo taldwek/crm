@@ -6,7 +6,7 @@ import Analytics from "./analytics/Analytics";
 
 function Container() {
   return (
-      <div>
+      <div id="container">
         <Route path="/clients" exact render={() => <Clients />} />
         <Route path="/actions" exact render={() => <Actions />} />
         <Route path="/analytics" exact render={() => <Analytics />} />

@@ -2,9 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
-// const imagesAPI = require('./imageRoutes.js')
+const routes = require('./routes.js')
 
-mongoose.connect("mongodb://localhost/crm", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://localhost/crm", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 
 app.use(function (req, res, next) {
@@ -17,9 +17,9 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-// app.use('/', imagesAPI)
+app.use('/', routes)
 
-app.listen(3001, () => {
-console.log(`Server is up on port 3001`)
+app.listen(3000, ()  => {
+console.log(`Server is up on port 3000`)
 })
 

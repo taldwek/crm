@@ -1,35 +1,84 @@
-import { observable, computed, action } from  'mobx'
-import {Reservation} from './ReservationStore'
+import { observable, computed, action } from "mobx";
+import { act } from "react-dom/test-utils";
 
+export class ClientStore {
+  @observable clientList = [];
+  @observable clientListAll = [];
+  @observable pageNum = 1;
+  @observable TotalPages = 1;
+  @observable clientPopup = {};
+  @observable actionData = [];
+  @observable clientId = null;
+  @observable actionsInput = "";
+  @observable updateInputs = {
+    owner: "",
+    emailType: "",
+  };
 
-export class RestaurantStore {
-    @observable reservations = []
-    @observable numTables = 10
-    @computed get totalReservations() { //automatically calculates the total reservations
-        return this.reservations.length
+  @action setUpdateInputs = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    this.updateInputs[name] = value;
+  };
+
+  @action setClientId = (name) => {
+    let client = this.actionData.find((c) => c.name === name);
+    this.clientId = client && client.id;
+  };
+
+  @action setActionsInput = (value) => {
+    this.actionsInput = value;
+  };
+
+   @computed get actionsDataOwners() {
+    const owners = [];
+    this.actionData.forEach((c) => {
+      owners.push(c.owner);
+    });
+    return owners;
+  }
+
+  @computed get actionsDataNames() {
+    const clientNames = [];
+    this.clientList.forEach((c) => {
+      clientNames.push(c.name + " " + c.surName);
+    });
+    return clientNames;
+  }
+
+  @action setActionData = (clients) => {
+      console.log(clients)
+    this.actionData = [...clients];
+  };
+
+  @action setClientList = (clients) => {
+    this.clientList = [...clients];
+  };
+
+  @action setClientListAll = (clients) => {
+    this.clientList = [...clients];
+  };
+
+  @action setTotalPages = (num) => {
+    this.totalPages = num;
+  };
+
+  @action setClientPopup = async (id) => {
+    if (id) {
+      const client = this.clientList.find((c) => c._id === id);
+      this.clientPopup = { ...client };
+    } else {
+      this.clientPopup = {};
     }
-    // @computed get openTables() { //automatically caluclates the number of tables available, only when the state is affected
-    //     let counter = 0
-    //     this.reservations.forEach(r => r.seated ? counter ++: null)
-    //     return (this.numTables - counter)
-    // }
-    // @computed get restPopulation() {
-    //     // calculate the number of people in the restaurant now
-    //     // (e.g. total number of people who are seated, but their reservation is not complete)
-    //     let counter = 0
-    //     this.reservations.forEach(r => {
-    //         if (!r.completed && r.seated) {
-    //             counter += r.numPeople
-    //         }})
-    //         return counter
-    // }
-    // @computed get completedTables() {
-    //     //calculate the number of tables that have been completed
-    //     let counter = 0
-    //     this.reservations.forEach(r => counter += r.completed)
-    //     return counter
-    // }
-    // @action addRes = (name, numPeople) => {
-    // }
+  };
 
+  @action setInputUpdate = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.clientPopup[name] = value;
+  };
+
+  @action setPageNum = (num) => {
+    this.pageNum = num;
+  };
 }
