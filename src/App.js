@@ -7,16 +7,18 @@ import Container from "./components/container";
 
 const App = () => {
 
-    return (
-      <Router>
-        <div class="App">
-          {/* <Redirect from="/" to ="/clients" /> */}
-          <NavBar />
-          <Container />
-        </div>
-      </Router>
+    return ( <
+        Router >
+        <
+        div className = "App" > { /* <Redirect from="/" to ="/clients" /> */ } <
+        NavBar / >
+        <
+        Container / >
+        <
+        /div> <
+        /Router>
     );
-  }
+}
 
 export default App;
-// 
+//

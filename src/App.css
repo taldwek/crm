@@ -1,291 +1,296 @@
-/* - Use these for your badges background colors: `#2ecc71`, `#3498db`, `#e74c3c`, `#f1c40f`
+    /* - Use these for your badges background colors: `#2ecc71`, `#3498db`, `#e74c3c`, `#f1c40f`
 - And these colors for your charts:
     - Top Salespeople: `#003f5c`
     - Sales By X: `#955196`
     - Sales over time: `#ff6e54`
     - Client Distribution: `#795548`, `#34495e`, `#95a5a6` 
 - Check <a href="http://tobiasahlin.com/spinkit/" target="_blank">this</a> out for simple to implement loaders */
-* {
-  font-family: "Montserrat", sans-serif;
-}
-
-.App {
-  background-color: #ecf0f1;
-  overflow: hidden;
-}
-
-#container {
-  background-color: #ecf0f1;
-  height: 87vh;
-}
-
-.actions-input {
-  margin-top: 20px;
-
-}
-
-#actions-input {
-  display: grid;
-  margin-left: 20px;
-}
-
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  height: 70px;
-  background-color: #0a1612;
-  font-weight: 1.1em;
-}
-.nav-bar > a {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  text-decoration-line: none;
-}
-
-a:visited {
-  color: white;
-}
-a:hover,
-span:hover {
-  cursor: pointer;
-  background-color: none;
-  background: none;
-}
-
-.tabActive {
-  background-color: #5ea58d;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-#clients {
-  margin: 30px;
-}
-
-#actions {
-  margin: 30px;
-}
-
-.action-header {
-  font-weight: bold;
-  margin-top: 30px
-}
-
-/* input::-webkit-calendar-picker-indicator {
+    
+    * {
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    .App {
+        background-color: #ecf0f1;
+        overflow: hidden;
+    }
+    
+    #container {
+        background-color: #ecf0f1;
+        height: 87vh;
+    }
+    
+    .actions-input {
+        margin-top: 20px;
+    }
+    
+    #actions-input {
+        display: grid;
+        margin-left: 20px;
+    }
+    
+    .nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 70px;
+        background-color: #0a1612;
+        font-weight: 1.1em;
+    }
+    
+    .nav-bar>a {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    a {
+        color: white;
+        text-decoration: none;
+        text-decoration-line: none;
+    }
+    
+    a:visited {
+        color: white;
+    }
+    
+    a:hover,
+    span:hover {
+        cursor: pointer;
+        /* background-color: none; */
+        /* background: none; */
+    }
+    
+    .tabActive {
+        background-color: #5ea58d;
+    }
+    
+    .App-logo {
+        height: 40vmin;
+        pointer-events: none;
+    }
+    
+    #clients {
+        margin: 30px;
+    }
+    
+    #actions {
+        margin: 30px;
+    }
+    
+    .action-header {
+        font-weight: bold;
+        margin-top: 30px
+    }
+    /* input::-webkit-calendar-picker-indicator {
   display: none;
 } */
-
-#clients-filter {
-  margin-bottom: 20px;
-}
-
-.filter-field {
-  border: none;
-  border-bottom: 2px solid #eae9e9;
-}
-
-::placeholder {
-  color: #8a8a8a;
-}
-
-.filter-field:focus {
-  outline: none;
-}
-
-/* with the :focus here, we would show grey when not using the element */
-select {
-  color: #8a8a8a;
-}
-/* with the :focus here, we show grey when using the element */
-select:focus {
-  color: black;
-}
-
-#select-category {
-  margin-left: 5px;
-  width: 120px;
-}
-
-#search-input {
-  width: 120px;
-}
-
-.pagination {
-  float: right;
-}
-
-.pagination a {
-  margin: 5px;
-  color: black;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.pagination a.active {
-  background-color: #4caf50;
-  color: white;
-  border: 1px solid #4caf50;
-}
-
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-}
-
-table {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td,
-th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-img {
-  width: 10px;
-  height: 10px;
-}
-#customers tr:hover {
-  background-color: #ddd;
-}
-
-th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #f7ce3e;
-  color: black;
-  font-weight: bold;
-}
-
-#update-popup {
-  display: grid;
-  position: fixed;
-  background-color: #202a28;
-  width: 400px;
-  height: 230px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 15px;
-}
-
-#popup-close > img {
-  height: 15px;
-  width: 15px;
-}
-
-#popup-close > img:hover {
-  cursor: pointer;
-}
-/
-#popup-update {
-  justify-self: center;
-  display: flex;
-  width: 100%;
-}
-
-#popup-update > button {
-  width: 100%;
-  margin-top: 20px;
-  height: 30px;
-  background-color: #f7ce3e;
-  color: black;
-  font-weight: bold;
-  border: none;
-}
-
-.input-row {
-  display: flex;
-  place-content: space-between;
-  align-self: baseline;
-  color: white;
-}
-
-.input-row > input {
-  border: none;
-  border-bottom: 1px solid #ffffff;
-  background-color: #202a28;
-  color: white;
-}
-
-#clientsInput {
-  border: none;
-  border-bottom: 1px solid #c7c7c7;
-  color: black;
-  background: transparent;
-  width: 100px;
-  margin-left: 10px;
-}
-
-.actions-section-container {
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.action-button {
-  color: #f7ce3e;
-}
-
-.actions-update-input, .clientsInput {
-  border: none;
-  border-bottom: 1px solid #c7c7c7;
-  background: transparent;
-  width: 100px;
-}
-
-.actions-update-row {
-  display: grid;
-  width: 600px;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
-  margin-top: 20px;
-}
-
-thead {
-  box-shadow: 2px 2px #7b7b7b;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    
+    #clients-filter {
+        margin-bottom: 20px;
+    }
+    
+    .filter-field {
+        border: none;
+        border-bottom: 2px solid #eae9e9;
+    }
+    
+     ::placeholder {
+        color: #8a8a8a;
+    }
+    
+    .filter-field:focus {
+        outline: none;
+    }
+    /* with the :focus here, we would show grey when not using the element */
+    
+    select {
+        color: #8a8a8a;
+    }
+    /* with the :focus here, we show grey when using the element */
+    
+    select:focus {
+        color: black;
+    }
+    
+    #select-category {
+        margin-left: 5px;
+        width: 120px;
+    }
+    
+    #search-input {
+        width: 120px;
+    }
+    
+    .pagination {
+        float: right;
+    }
+    
+    .pagination a {
+        margin: 5px;
+        color: black;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    
+    .pagination a.active {
+        background-color: #4caf50;
+        color: white;
+        border: 1px solid #4caf50;
+    }
+    
+    .pagination a:hover:not(.active) {
+        background-color: #ddd;
+    }
+    
+    table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    img {
+        width: 10px;
+        height: 10px;
+    }
+    
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+    
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #f7ce3e;
+        color: black;
+        font-weight: bold;
+    }
+    
+    #update-popup {
+        display: grid;
+        position: fixed;
+        background-color: #202a28;
+        width: 400px;
+        height: 230px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+    }
+    
+    #popup-close>img {
+        height: 15px;
+        width: 15px;
+    }
+    
+    #popup-close>img:hover {
+        cursor: pointer;
+    }
+    
+    / #popup-update {
+        justify-self: center;
+        display: flex;
+        width: 100%;
+    }
+    
+    #popup-update>button {
+        width: 100%;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #f7ce3e;
+        color: black;
+        font-weight: bold;
+        border: none;
+    }
+    
+    .input-row {
+        display: flex;
+        place-content: space-between;
+        align-self: baseline;
+        color: white;
+    }
+    
+    .input-row>input {
+        border: none;
+        border-bottom: 1px solid #ffffff;
+        background-color: #202a28;
+        color: white;
+    }
+    
+    #clientsInput {
+        border: none;
+        border-bottom: 1px solid #c7c7c7;
+        color: black;
+        background: transparent;
+        width: 100px;
+        margin-left: 10px;
+    }
+    
+    .actions-section-container {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .action-button {
+        color: #f7ce3e;
+    }
+    
+    .actions-update-input,
+    .clientsInput {
+        border: none;
+        border-bottom: 1px solid #c7c7c7;
+        background: transparent;
+        width: 100px;
+    }
+    
+    .actions-update-row {
+        display: grid;
+        width: 600px;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 10px;
+        margin-top: 20px;
+    }
+    
+    thead {
+        box-shadow: 2px 2px #7b7b7b;
+    }
+    
+    @media (prefers-reduced-motion: no-preference) {
+        .App-logo {
+            animation: App-logo-spin infinite 20s linear;
+        }
+    }
+    
+    .App-header {
+        background-color: #282c34;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        color: white;
+    }
+    
+    .App-link {
+        color: #61dafb;
+    }
+    
+    @keyframes App-logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
